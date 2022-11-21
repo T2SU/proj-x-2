@@ -64,26 +64,8 @@ void TestWindowMessage(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPSTR,
 	}
 }
 
-union KeyState
-{
-	LPARAM lparam;
-
-	struct
-	{
-		unsigned nRepeatCount : 16;
-		unsigned nScanCode : 8;
-		unsigned nExtended : 1;
-		unsigned nReserved : 4;
-		unsigned nContext : 1;
-		unsigned nPrev : 1;
-		unsigned nTrans : 1;
-	};
-};
-
 static LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
-	KeyState state{};
-
 	switch (iMessage)
 	{
 	case WM_KEYDOWN:
