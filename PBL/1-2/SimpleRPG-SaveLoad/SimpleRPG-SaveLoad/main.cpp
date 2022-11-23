@@ -13,24 +13,84 @@ static int Rand(GameData& data)
 {
     int ret = rand();
     data.Seed *= static_cast<uint32_t>(GetTickCount64());
-    data.Seed *= 112345678;
-    data.Seed *= 364;
+    data.Seed *= 112345;
+    data.Seed += 214325;
+    data.Seed *= 11;
     srand(data.Seed);
     return ret;
 }
 
+/// <summary>
+/// 새로운 게임을 시작합니다.
+/// </summary>
 static void NewGame();
+
+/// <summary>
+/// save.dat 에서 데이터를 읽어 게임을 로드합니다.
+/// </summary>
 static void Load();
 
+/// <summary>
+/// 메인 게임 루프로 진입합니다.
+/// </summary>
+/// <param name="data">게임 데이터</param>
 static void Play(GameData& data);
+
+/// <summary>
+/// 사용자에게 이름을 입력받습니다.
+/// </summary>
+/// <param name="data">게임 데이터</param>
 static void PickName(GameData& data);
+
+/// <summary>
+/// 스킬을 사용하여 적을 공격합니다.
+/// </summary>
+/// <param name="data">게임 데이터</param>
 static void UseSkill(GameData& data);
+
+/// <summary>
+/// 일반 공격으로 적을 공격합니다.
+/// </summary>
+/// <param name="data">게임 데이터</param>
 static void Attack(GameData& data);
+
+/// <summary>
+/// 경험치를 획득합니다.
+/// </summary>
+/// <param name="data">게임 데이터</param>
+/// <param name="exp">획득할 경험치량</param>
 static void GainExp(GameData& data, int32_t exp);
+
+/// <summary>
+/// 적에게 랜덤으로 데미지를 입힙니다. 최소 데미지 및 최대 데미지는 0보다 커야하며, 최소 데미지보다 최대 데미지가 커야합니다.
+/// </summary>
+/// <param name="data">게임 데이터</param>
+/// <param name="minDamage">최소 데미지</param>
+/// <param name="maxDamage">최대 데미지</param>
 static void DealDamage(GameData& data, int32_t minDamage, int32_t maxDamage);
+
+/// <summary>
+/// 적으로부터 5 ~ 9 사이의 랜덤 피격 데미지를 입습니다.
+/// </summary>
+/// <param name="data">게임 데이터</param>
 static void Hit(GameData& data);
+
+/// <summary>
+/// HP를 1 ~ 20 사이 만큼 랜덤으로 회복합니다.
+/// </summary>
+/// <param name="data">게임 데이터</param>
 static void RecoverHP(GameData& data);
+
+/// <summary>
+/// MP를 2 ~ 11 사이 만큼 랜덤으로 회복합니다.
+/// </summary>
+/// <param name="data">게임 데이터</param>
 static void RecoverMP(GameData& data);
+
+/// <summary>
+/// save.dat에 현재 게임 데이터를 저장합니다.
+/// </summary>
+/// <param name="data">게임 데이터</param>
 static void Save(GameData& data);
 
 int main()

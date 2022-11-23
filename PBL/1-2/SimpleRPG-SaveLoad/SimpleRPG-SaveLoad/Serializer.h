@@ -12,8 +12,17 @@ template <typename T>
 class ISerializable
 {
 public:
-	virtual void Serialize(Serializer<T>&) const = 0;
-	virtual void Deserialize(Serializer<T>&) = 0;
+	/// <summary>
+	/// 직렬화 로직을 구현해야 하는 가상 함수 입니다.
+	/// </summary>
+	/// <param name="serializer">직렬화 헬퍼 인스턴스</param>
+	virtual void Serialize(Serializer<T>& serializer) const = 0;
+
+	/// <summary>
+	/// 역직렬화 로직을 구현해야 하는 가상 함수 입니다.
+	/// </summary>
+	/// <param name="serializer">직렬화 헬퍼 인스턴스</param>
+	virtual void Deserialize(Serializer<T>& serializer) = 0;
 };
 
 template <typename T>
@@ -29,8 +38,17 @@ private:
 	std::basic_istream<CharT>* _in;
 
 public:
+	/// <summary>
+	/// 스트림에 데이터를 작성하기 위한 생성자 입니다.
+	/// </summary>
+	/// <param name="os">데이터를 작성할 출력 스트림</param>
 	Serializer(std::basic_ostream<CharT>& os)
 		: _mode(Mode::WRITE), _out(&os), _in(nullptr) {}
+
+	/// <summary>
+	/// 스트림에서 데이터를 읽기 위한 생성자 입니다.
+	/// </summary>
+	/// <param name="os">데이터를 읽어올 입력 스트림</param>
 	Serializer(std::basic_istream<CharT>& is)
 		: _mode(Mode::READ), _in(&is), _out(nullptr) {}
 
@@ -39,6 +57,11 @@ public:
 	Serializer& operator=(const Serializer&) = delete;
 	Serializer&& operator=(Serializer&&) = delete;
 
+	/// <summary>
+	/// 인자로 전달받은 객체를 현재 스트림에 직렬화하여 출력합니다.
+	/// </summary>
+	/// <typeparam name="U">객체 타입</typeparam>
+	/// <param name="obj">스트림으로 직렬화할 객체</param>
 	template <typename U = T,
 		std::enable_if_t<std::is_convertible_v<U*, ISerializable<U>* >, bool> = true
 	>
@@ -47,6 +70,11 @@ public:
 		obj.Serialize(*this);
 	}
 
+	/// <summary>
+	/// 현재 스트림에서 역직렬화하여 인자로 전달받은 객체에 값을 작성합니다.
+	/// </summary>
+	/// <typeparam name="U">객체 타입</typeparam>
+	/// <param name="obj">스트림에서 역직렬화될 객체</param>
 	template <typename U = T,
 		std::enable_if_t<std::is_convertible_v<U*, ISerializable<U>* >, bool> = true
 	>
@@ -55,12 +83,33 @@ public:
 		obj.Deserialize(*this);
 	}
 
+	/// <summary>
+	/// 스트림에서 값을 읽어 반환합니다.
+	/// </summary>
+	/// <typeparam name="U">읽을 값의 타입</typeparam>
+	/// <returns>스트림에서 읽은 값</returns>
 	template <typename U>
 	U		Read();
+
+	/// <summary>
+	/// 스트림에서 바이트 배열을 읽습니다.
+	/// </summary>
+	/// <param name="buffer">데이터를 읽어 저장할 배열입니다.</param>
+	/// <param name="count">읽을 바이트 수 입니다.</param>
 	void	ReadBuffer(CharT buffer[], size_t count);
 
+	/// <summary>
+	/// 스트림에 값을 직렬화 하여 반환합니다.
+	/// </summary>
+	/// <typeparam name="U">작성할 값의 타입</typeparam>
 	template <typename U>
 	void	Write(const U&);
+
+	/// <summary>
+	/// 스트림에 바이트 배열을 작성합니다.
+	/// </summary>
+	/// <param name="buffer">스트림에 저장할 데이터의 배열입니다.</param>
+	/// <param name="count">작성할 바이트 수 입니다.</param>
 	void	WriteBuffer(const CharT buffer[], size_t count);
 };
 
