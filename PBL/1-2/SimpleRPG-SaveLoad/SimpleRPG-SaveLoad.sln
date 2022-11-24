@@ -5,8 +5,6 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleRPG-SaveLoad", "SimpleRPG-SaveLoad\SimpleRPG-SaveLoad.vcxproj", "{42FAF534-2EB0-476C-B982-B61072A45220}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestBit", "TestBit\TestBit.vcxproj", "{114DAE47-CE52-4358-9009-222B1FD5C467}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,14 +21,6 @@ Global
 		{42FAF534-2EB0-476C-B982-B61072A45220}.Release|x64.Build.0 = Release|x64
 		{42FAF534-2EB0-476C-B982-B61072A45220}.Release|x86.ActiveCfg = Release|Win32
 		{42FAF534-2EB0-476C-B982-B61072A45220}.Release|x86.Build.0 = Release|Win32
-		{114DAE47-CE52-4358-9009-222B1FD5C467}.Debug|x64.ActiveCfg = Debug|x64
-		{114DAE47-CE52-4358-9009-222B1FD5C467}.Debug|x64.Build.0 = Debug|x64
-		{114DAE47-CE52-4358-9009-222B1FD5C467}.Debug|x86.ActiveCfg = Debug|Win32
-		{114DAE47-CE52-4358-9009-222B1FD5C467}.Debug|x86.Build.0 = Debug|Win32
-		{114DAE47-CE52-4358-9009-222B1FD5C467}.Release|x64.ActiveCfg = Release|x64
-		{114DAE47-CE52-4358-9009-222B1FD5C467}.Release|x64.Build.0 = Release|x64
-		{114DAE47-CE52-4358-9009-222B1FD5C467}.Release|x86.ActiveCfg = Release|Win32
-		{114DAE47-CE52-4358-9009-222B1FD5C467}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

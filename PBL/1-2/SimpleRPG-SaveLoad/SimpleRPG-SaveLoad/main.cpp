@@ -310,6 +310,7 @@ void Save(GameData& data)
     try
     {
         s.Save(data);
+        ofs.flush();
         std::cout << "저장이 완료되었습니다." << std::endl;
     }
     catch (const std::ios::failure& fail)
