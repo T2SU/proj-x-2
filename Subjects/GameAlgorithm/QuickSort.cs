@@ -56,9 +56,19 @@ namespace GameAlgorithm
             var cursor = minIndex - 1; // -1
             for (var i = minIndex; i < maxIndex; i++)
             {
-                if (_items[i].CompareTo(pivot) < 0) // _items[cursor] < pivot
+                if (_order == SortOrder.Ascending)
                 {
-                    Swap(++cursor, i);
+                    if (_items[i].CompareTo(pivot) < 0) // _items[cursor] < pivot
+                    {
+                        Swap(++cursor, i);
+                    }
+                }
+                else if (_order == SortOrder.Descending)
+                {
+                    if (_items[i].CompareTo(pivot) > 0) // _items[cursor] > pivot
+                    {
+                        Swap(++cursor, i);
+                    }
                 }
             }
 
