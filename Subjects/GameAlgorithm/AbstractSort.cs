@@ -15,6 +15,8 @@ namespace GameAlgorithm
             _items = new List<T>(items);
         }
 
+        public SortOrder Order => _order;
+
         public IEnumerable<T> Items => _items;
 
         public TimeSpan Elapsed => _elapsedTime ?? default;

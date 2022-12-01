@@ -27,15 +27,15 @@ namespace GameAlgorithm
 
                         if (_order == SortOrder.Ascending)
                         {
-                            if (previous.CompareTo(item) > 0)
+                            if (previous.CompareTo(item) < 0)
                                 break;
                         }
                         else if (_order == SortOrder.Descending)
                         {
-                            if (previous.CompareTo(item) < 0)
+                            if (previous.CompareTo(item) > 0)
                                 break;
                         }
-                        _items[j + 1] = item;
+                        _items[j + 1] = previous;
                     }
                     _items[j + 1] = item;
                 }
