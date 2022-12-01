@@ -10,6 +10,14 @@ namespace GameAlgorithm
         {
         }
 
+        /*
+         * 삽입 정렬
+         * 
+         * 두 번째 요소부터, 끝 요소 까지 반복하며,
+         *   맨 앞 까지, 자신보다 작은 값이 나올때 까지, 한 칸씩 뒤로 밀어냄.
+         *   그리고, 마지막 자리에 해당 요소를 삽입해 넣음.
+         */
+
         public override void Sort()
         {
             var sw = new Stopwatch();

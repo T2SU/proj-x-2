@@ -22,7 +22,7 @@ namespace GameAlgorithm
                 "내림차순" => SortOrder.Descending,
                 _ => throw new NotImplementedException()
             };
-            if (!int.TryParse(textBox1.Text, out var count))
+            if (!int.TryParse(textBox1.Text.Trim(), out var count))
             {
                 MessageBox.Show("요소 개수는 int32 범위의 정수만 가능합니다.");
                 return;
@@ -37,6 +37,18 @@ namespace GameAlgorithm
                         break;
                     case "실수":
                         DoSort(new InsertionSort<float>(order, RandomSingles(count)));
+                        break;
+                }
+            }
+            else if (sortAlgorithm.Text == "퀵 정렬")
+            {
+                switch (elementType.Text)
+                {
+                    case "정수":
+                        DoSort(new QuickSort<int>(order, RandomIntegers(count)));
+                        break;
+                    case "실수":
+                        DoSort(new QuickSort<float>(order, RandomSingles(count)));
                         break;
                 }
             }
