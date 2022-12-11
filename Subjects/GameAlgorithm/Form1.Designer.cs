@@ -134,7 +134,7 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.RowTemplate.Height = 41;
+            this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1172, 826);
             this.dataGridView1.TabIndex = 8;
             // 
@@ -144,7 +144,7 @@
             this.Count.MinimumWidth = 10;
             this.Count.Name = "Count";
             this.Count.ReadOnly = true;
-            this.Count.Width = 125;
+            this.Count.Width = 120;
             // 
             // DataType
             // 
@@ -152,7 +152,7 @@
             this.DataType.MinimumWidth = 10;
             this.DataType.Name = "DataType";
             this.DataType.ReadOnly = true;
-            this.DataType.Width = 115;
+            this.DataType.Width = 110;
             // 
             // SortType
             // 
@@ -160,7 +160,7 @@
             this.SortType.MinimumWidth = 10;
             this.SortType.Name = "SortType";
             this.SortType.ReadOnly = true;
-            this.SortType.Width = 115;
+            this.SortType.Width = 110;
             // 
             // Time
             // 
@@ -168,7 +168,7 @@
             this.Time.MinimumWidth = 10;
             this.Time.Name = "Time";
             this.Time.ReadOnly = true;
-            this.Time.Width = 140;
+            this.Time.Width = 130;
             // 
             // label4
             // 
